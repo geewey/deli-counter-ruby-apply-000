@@ -1,5 +1,5 @@
 # Write your code here.
-katz_deli = []
+# katz_deli = []
 
 def line(katz_deli)
   line_length = katz_deli.length
@@ -15,15 +15,23 @@ def line(katz_deli)
   end
 end
 
-def take_a_number(katz_deli, name)
-  katz_deli << name
-  position = katz_deli.index(name) + 1
-  puts "Welcome, #{name}. You are number #{position} in line." 
+# def take_a_number(katz_deli, name)
+#   katz_deli << name
+#   position = katz_deli.index(name) + 1
+#   puts "Welcome, #{name}. You are number #{position} in line." 
+# end
+
+$guest_count = 0
+
+def give_a_number(katz_deli)
+  $guest_count += 1
+  katz_deli << $guest_count
+  puts "Welcome, you are number #{$guest_count}."
 end
 
 def now_serving(katz_deli)
   current_guest = katz_deli.shift()
-  if current_guest == nil
+  if current_guest == 0
     puts "There is nobody waiting to be served!"
   else
     puts "Currently serving #{current_guest}."
